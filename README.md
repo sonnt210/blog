@@ -9,7 +9,7 @@
 
 ## About Project
 
-Blog cá nhân chia sẻ về công việc và những điều thú vị trong cuộc sống:
+This blog website is intended for practicing coding skills and sharing interesting things about the IT industry and life
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
