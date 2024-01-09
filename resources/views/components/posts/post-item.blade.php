@@ -4,7 +4,7 @@
         <div class="article-thumbnail col-span-4 flex items-center">
             <a href="">
                 <img class="mw-100 mx-auto rounded-xl"
-                     src="{{ $post->image }}"
+                     src="{{ $post->getThumbnailUrl() }}"
                      alt="thumbnail">
             </a>
         </div>
@@ -26,8 +26,18 @@
                 {{ $post->getExcerpt() }}
             </p>
             <div class="article-actions-bar mt-6 flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <span class="text-gray-500 text-sm">{{ $post->getReadingTime() }} min read</span>
+                <div class="flex gap-x-2">
+                    @foreach($post->categories as $category)
+                        <x-badge wire:navigate
+                                 href="{{ route('posts.index', ['category' => $category->title]) }}"
+                                 :textColor="$category->text_color"
+                                 :bgColor="$category->bg_color">
+                            {{ $category->title }}
+                        </x-badge>
+                    @endforeach
+                    <div class="flex items-center space-x-4">
+                        <span class="text-gray-500 text-sm">{{ $post->getReadingTime() }} min read</span>
+                    </div>
                 </div>
                 <div>
                     <a class="flex items-center">
