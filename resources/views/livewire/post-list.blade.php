@@ -5,7 +5,6 @@
                 <button class="gray-500 text-xs mr-3" wire:click="clearFilters()">X</button>
             @endif
             @if($this->activeCategory)
-                Tất cả bài viết về:
                 <x-badge wire:navigate
                          href="{{ route('posts.index', ['category' => $this->activeCategory->slug]) }}"
                          :textColor="$this->activeCategory->text_color"
@@ -14,7 +13,9 @@
                 </x-badge>
             @endif
             @if($search)
-                Có chứa: {{ $search }}
+                <span class="ml-2">
+                    Có chứa: <strong>{{ $search }}</strong>
+                </span>
             @endif
         </div>
         <div class="flex items-center space-x-4 font-light ">
