@@ -14,6 +14,12 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
 
+    /** @var int  */
+    const AVERAGE_READ_SPEED = 250;
+
+    /** @var int  */
+    const LIMIT_CHARACTER_CONTENT = 150;
+
     protected $fillable = [
         'user_id',
         'title',
@@ -67,13 +73,13 @@ class Post extends Model
 
     public function getExcerpt()
     {
-        return Str::limit(strip_tags($this->body), 150);
+        return Str::limit(strip_tags($this->body), self::LIMIT_CHARACTER_CONTENT);
     }
 
     public function getReadingTime()
     {
         $words   = str_word_count($this->body);
-        $minutes = round($words / 250);
+        $minutes = round($words / self::AVERAGE_READ_SPEED);
         return $minutes < 1 ? 1 : $minutes;
     }
 
