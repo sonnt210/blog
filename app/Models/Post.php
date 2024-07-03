@@ -66,6 +66,27 @@ class Post extends Model
         });
     }
 
+    /**
+     * Sort posts by like count
+     * @param $query
+     * @return void
+     */
+    public function scopePopular($query)
+    {
+        $query->withCount('likes')->orderBy('likes_count', 'desc');
+    }
+
+    /**
+     * Get item by name
+     * @param $query
+     * @param string $search
+     * @return void
+     */
+    public function scopeSearch($query, string $search = '')
+    {
+        $query->where('title', 'like', "%{$search}%");
+    }
+
     public function scopeFeatured($query)
     {
         $query->where('featured', true);
