@@ -2,13 +2,13 @@
 <div {{ $attributes }}>
     <a wire:navigate href="{{ route('posts.show', $post->slug) }}">
         <div>
-            <img class="w-full rounded-xl"
+            <img class="w-full rounded-xl" style="height: 204px"
                  src="{{ $post->getThumbnailUrl() }}">
         </div>
     </a>
     <div class="mt-3">
         <div class="flex items-center mb-2 gap-x-2">
-            @if($category = $post->categories()->first())
+            @if($category = $post->categories->first())
                 <x-posts.category-badge :category="$category" />
             @endif
             <p class="text-gray-500 text-sm">{{ $post->published_at }}</p>
