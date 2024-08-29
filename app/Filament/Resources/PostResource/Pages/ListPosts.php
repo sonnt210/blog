@@ -16,4 +16,11 @@ class ListPosts extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
+
+    protected function getFooterWidgets(): array
+    {
+        return [
+            PostResource\Widgets\PostsChart::class
+        ];
+    }
 }
