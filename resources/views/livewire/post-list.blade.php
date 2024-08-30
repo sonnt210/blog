@@ -14,17 +14,17 @@
             @endif
             @if($search)
                 <span class="ml-2">
-                    Có chứa: <strong>{{ $search }}</strong>
+                   {{ __('blog.containing') }}: <strong>{{ $search }}</strong>
                 </span>
             @endif
         </div>
         <div class="flex items-center space-x-4 font-light ">
             <x-checkbox wire:model.live="popular"/>
-            <x-label>Bài viết phổ biến</x-label>
+            <x-label>{{ __('blog.popular_posts') }}</x-label>
             <button class="{{ $sort === 'desc' ? 'text-gray-900 border-b border-gray-700' : 'text-gray-500'}}  py-4"
-                wire:click="setSort('desc')">Bài viết mới nhất</button>
+                wire:click="setSort('desc')">{{ __('blog.latest_posts') }}</button>
             <button class="{{ $sort === 'asc' ? 'text-gray-900 border-b border-gray-700' : 'text-gray-500'}}  py-4"
-                wire:click="setSort('asc')">Bài viết cũ nhất</button>
+                wire:click="setSort('asc')">{{ __('blog.oldest_posts') }}</button>
         </div>
     </div>
     <div class="py-4">
