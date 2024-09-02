@@ -1,6 +1,6 @@
 <x-app-layout title="Home Page">
     @section('hero')
-        <div class="w-full text-center py-32">
+        <div class="home-banner w-full text-center py-32" style="padding-top: 2rem; padding-bottom: 2rem;">
             <h1 class="text-2xl md:text-3xl font-bold text-center lg:text-5xl text-gray-700">
                 {{ __('home.hero.title') }} <span class="text-yellow-500">&lt;Dev&gt;</span> <span class="text-gray-900"> News</span>
             </h1>
